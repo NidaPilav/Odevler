@@ -1,0 +1,43 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Cinsiyeti giriniz (kadın/erkek): ");
+        string cinsiyet = Console.ReadLine();
+
+        Console.Write("Boyu (inç cinsinden) giriniz: ");
+        double boy = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Kilosu giriniz: ");
+        double kilo = Convert.ToDouble(Console.ReadLine());
+
+        double ideal = HesaplaIdealKilo(cinsiyet, boy, kilo);
+
+        if (!double.IsNaN(ideal))
+        {
+            Console.WriteLine($"{char.ToUpper(cinsiyet[0]) + cinsiyet.Substring(1)} olarak ideale yakın kilonuz: {ideal:F2} kg");
+        }
+        else
+        {
+            Console.WriteLine("Geçersiz cinsiyet bilgisi");
+        }
+    }
+
+    static double HesaplaIdealKilo(string cinsiyet, double boy, double kilo)
+    {
+        double boyCm = boy * 2.54;
+
+        if (cinsiyet.ToLower() == "kadın")
+        {
+            return 45.5 + 2.3 * (boyCm - 60);
+        }
+        else if (cinsiyet.ToLower() == "erkek")
+        {
+            return 50 + 2.3 * (boyCm - 60);
+        }
+        else
+        {
+            Console.WriteLine("Geçersiz cinsiyet bilgisi");
+            return double.NaN;
