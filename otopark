@@ -1,0 +1,24 @@
+//  İlk 2 saati 3 liradan
+// 2 saatten 8 saat arasını her saat başı 2 liradan
+// 8 saat ile 24 saat arası 1 gün tam ücret olacak
+// Tam ücrette 20 tl 
+
+Console.WriteLine("Kaç saat girdiniz ? ");
+int girilenzaman = Convert.ToInt32(Console.ReadLine());
+
+int hesaplanangün = girilenzaman / 24;
+int hesaplanansaat = girilenzaman % 24;
+
+int ödeme = 0;
+if (hesaplanansaat > 0 && hesaplanansaat <=2){
+    ödeme = ( hesaplanangün * 20 ) + 3;
+}
+else if (hesaplanansaat > 2 && hesaplanansaat < 9){
+    ödeme = (hesaplanangün * 20) + 3;
+    hesaplanansaat -= 2;
+    ödeme += hesaplanansaat * 2;
+}
+else {
+    ödeme = (hesaplanangün * 20) + 20;
+}
+    Console.WriteLine("Yapacağınız ödeme" + ödeme);
