@@ -1,0 +1,20 @@
+using System;
+
+namespace SaatDakikaOrnegi
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            DateTime simdi = DateTime.Now;
+
+            int saat = simdi.Hour;
+            int dakika = simdi.Minute;
+
+            Console.WriteLine("Şu anki saat: " + saat + ":" + dakika);
+
+            Console.ReadLine();
+        }
+    }
+}
