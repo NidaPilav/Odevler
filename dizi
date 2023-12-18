@@ -1,0 +1,38 @@
+using System;
+
+namespace or220
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Dizinin eleman sayısını giriniz: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            int[] B = new int[n];
+
+            Console.WriteLine("Dizinin elemanlarını giriniz:");
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"{i + 1}. elemanı giriniz: ");
+                B[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            int enYakinIndex = 0;
+
+            for (int a = 1; a < B.Length; a++)
+            {
+                if (Math.Abs(B[0] - B[a]) < Math.Abs(B[0] - B[enYakinIndex]))
+                {
+                    enYakinIndex = a;
+                }
+            }
+
+            Console.WriteLine($"İlk Sayıya En Yakın Sayı = {B[enYakinIndex]}");
+
+            Console.Write("Press any key to continue . . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
