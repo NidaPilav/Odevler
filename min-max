@@ -1,0 +1,39 @@
+using System;
+
+namespace or211
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int c;
+            int EnBuyuk = int.MinValue; // Minimum değeri int'in minimum değeri olarak ayarla
+            int EnKucuk = int.MaxValue; // Maximum değeri int'in maksimum değeri olarak ayarla
+            int[] B = { 56, 78, 95, 23, 95, 87, 61, 77, 45, 33 };
+            string[] A = { "Emin", "Emir", "İclal", "Bekir", "Cem", "Arda", "Kaan", "Metin", "Can", "Ramiz" };
+
+            // En yüksek ve en düşük notu alan kişilerin indekslerini tutacak listeler
+            var enBuyukNotAlanlar = new List<int>();
+            var enKucukNotAlanlar = new List<int>();
+
+            for (c = 0; c < B.Length; c++)
+            {
+                if (B[c] > EnBuyuk)
+                {
+                    EnBuyuk = B[c];
+                    enBuyukNotAlanlar.Clear(); // Yeni en büyük değeri bulduğumuzda listeyi temizle
+                    enBuyukNotAlanlar.Add(c); // Yeni en büyük değeri alan kişinin indeksini ekle
+                }
+                else if (B[c] == EnBuyuk)
+                {
+                    enBuyukNotAlanlar.Add(c); // Aynı en büyük değeri alan kişinin indeksini ekle
+                }
+
+                if (B[c] < EnKucuk)
+                {
+                    EnKucuk = B[c];
+                    enKucukNotAlanlar.Clear(); // Yeni en küçük değeri bulduğumuzda listeyi temizle
+                    enKucukNotAlanlar.Add(c); // Yeni en küçük değeri alan kişinin indeksini ekle
+                }
+                else if (B[c] == EnKucuk)
+ 
